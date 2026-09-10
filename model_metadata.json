@@ -1,0 +1,98 @@
+{
+  "trained_on": "2026-09-03 22:05",
+  "n_samples": 1000,
+  "n_normal": 930,
+  "n_insider": 70,
+  "n_features": 14,
+  "feature_names": [
+    "login_count",
+    "logoff_count",
+    "usb_connect_count",
+    "usb_disconnect_count",
+    "email_count",
+    "file_activity_count",
+    "unique_pc_count",
+    "after_hours_login",
+    "weekend_activity",
+    "attachment_count",
+    "max_login_drift",
+    "weeks_with_anomalous_login",
+    "max_usb_drift",
+    "weeks_with_anomalous_usb"
+  ],
+  "cv_metrics": {
+    "accuracy": {
+      "train_mean": 0.9810000000000001,
+      "test_mean": 0.9789999999999999,
+      "test_std": 0.0020000000000000018
+    },
+    "precision": {
+      "train_mean": 0.78660406885759,
+      "test_mean": 0.7765350877192982,
+      "test_std": 0.023973487887107178
+    },
+    "recall": {
+      "train_mean": 1.0,
+      "test_mean": 0.9857142857142858,
+      "test_std": 0.02857142857142856
+    },
+    "f1": {
+      "train_mean": 0.8805336832895888,
+      "test_mean": 0.8680303030303029,
+      "test_std": 0.010291883453176776
+    }
+  },
+  "holdout_metrics": {
+    "0": {
+      "precision": 1.0,
+      "recall": 0.9838709677419355,
+      "f1-score": 0.991869918699187,
+      "support": 186.0
+    },
+    "1": {
+      "precision": 0.8235294117647058,
+      "recall": 1.0,
+      "f1-score": 0.9032258064516129,
+      "support": 14.0
+    },
+    "accuracy": 0.985,
+    "macro avg": {
+      "precision": 0.9117647058823529,
+      "recall": 0.9919354838709677,
+      "f1-score": 0.9475478625753999,
+      "support": 200.0
+    },
+    "weighted avg": {
+      "precision": 0.9876470588235294,
+      "recall": 0.985,
+      "f1-score": 0.9856648308418567,
+      "support": 200.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      183,
+      3
+    ],
+    [
+      0,
+      14
+    ]
+  ],
+  "feature_importances": {
+    "login_count": 0.095903129022181,
+    "logoff_count": 0.14669589862193144,
+    "usb_connect_count": 0.18029308105606986,
+    "usb_disconnect_count": 0.1643350246501653,
+    "email_count": 0.03575520666469825,
+    "file_activity_count": 0.1602977112624153,
+    "unique_pc_count": 0.026196079003420983,
+    "after_hours_login": 0.032665875761854084,
+    "weekend_activity": 0.005955719875645861,
+    "attachment_count": 0.022097871063656755,
+    "max_login_drift": 0.02158983621714121,
+    "weeks_with_anomalous_login": 0.018853431225052914,
+    "max_usb_drift": 0.08254958197952932,
+    "weeks_with_anomalous_usb": 0.006811553596237576
+  }
+}
