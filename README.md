@@ -1,142 +1,83 @@
-# 🛡️ AI-Based Insider Threat Detection System
+# 🛡️ Insider Threat Detection Platform
+
+An Automated Threat Intelligence Framework for Insider Threat Detection — using behavioral analytics and machine learning to identify users whose activity patterns deviate from normal organizational behavior.
 
 ## 📌 Project Overview
 
-This project presents an AI-based Insider Threat Detection System that uses Machine Learning to identify potentially suspicious insider activity from user activity data.
+This project detects potential insider threats by analyzing user behavior logs (logins, USB usage, email activity, file access) and classifying users as Normal or Insider Threat using a Random Forest model. The system includes explainable AI (reason codes) and an interactive Streamlit dashboard for real-time threat analysis.
 
-The system uses a Random Forest classification model to classify users into two categories:
+## 🎓 Academic Details
 
-- 🟢 Normal User
-- 🔴 Insider Threat
+- **Project Type:** B.Tech Final Year Project — Computer Science & Engineering
+- **Group:** GC-5
+- **Guide:** Prof. Sapana G. Nandanwar
+- **Team:** Vinay Nikhar, Vishal Jadhav, Saurabh Mohod, Nandini Pund, Prachi Dahapute
 
-The project covers the complete Machine Learning workflow, including data understanding, data preprocessing, feature engineering, model building, testing, and prediction.
+## 🧠 Features
 
-## 🎯 Objective
+- Behavioral feature extraction from raw activity logs (login, USB, email, file access)
+- Time-windowed behavioral-drift features (deviation from user's own baseline)
+- Random Forest classifier with Stratified 5-Fold Cross-Validation
+- Explainable AI — human-readable reason codes for each flagged prediction
+- Risk scoring (0–100%) with Low/Medium/High risk levels
+- Interactive Streamlit dashboard with single-user lookup and batch CSV analysis
 
-The main objective of this project is to develop a Machine Learning-based system that can analyze user activity patterns and help identify potential insider threats.
+## 🛠️ Tech Stack
 
-## 🛠️ Technologies Used
+Python · Pandas · Scikit-learn (Random Forest) · Streamlit · Plotly · NumPy
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-- Random Forest
-- Streamlit
-- Plotly
-- Joblib
-- Jupyter Notebook
+## 📊 Dataset
 
-## 🤖 Machine Learning Model
+CMU CERT Insider Threat Dataset (r6.2) — includes logon, device, email, file, and psychometric logs for 1000 users.
 
-### Random Forest Classifier
+## 🖥️ Screenshots
 
-The project uses a Random Forest classification model for insider threat prediction.
+### Dashboard
+![Dashboard](<img width="742" height="767" alt="image" src="https://github.com/user-attachments/assets/9782c3e9-934c-4128-a978-64d9a88c08ca" />
+)
 
-The trained model is saved as:
-
-`random_forest_model.pkl`
-
-## 📊 Features Used
-
-The prediction application uses user activity features including:
-
-- User ID
-- Login Count
-- Logoff Count
-- USB Connect Count
-- USB Disconnect Count
-- Email Count
-- File Activity Count
-- Unique PC Count
-- After-Hours Login
-- Weekend Activity
-- Attachment Count
-
-These features are used to identify patterns associated with normal and potentially suspicious user activity.
-
-## 🔄 Project Workflow
-
-```text
-Data Understanding
-       ↓
-Data Preprocessing
-       ↓
-Feature Engineering
-       ↓
-Feature Dataset Creation
-       ↓
-Random Forest Model Training
-       ↓
-Model Testing & Prediction
-       ↓
-Streamlit Application
-       ↓
-Insider Threat Detection
-
-Project Structure
-insider-threat-detection/
-│
-├── 01_Data_Understanding.ipynb
-├── 02_Data_Preprocessing.ipynb
-├── 03_Feature_Engineering.ipynb
-├── 04_Model_Building.ipynb
-├── 05_Model_Testing_And_Prediction.ipynb
-│
-├── app.py
-├── random_forest_model.pkl
-├── final_features.csv
-├── insiders.csv
-└── README.md
+### Single User Lookup
+![User Lookup](<img width="495" height="672" alt="image" src="https://github.com/user-attachments/assets/b52d24ea-e7da-4857-83c3-11c65dc762fb" />)
 
 
-🖥️ Streamlit Application
+### Batch Threat Analysis
+![Batch Analysis](<img width="501" height="736" alt="Screenshot 2026-09-10 233422" src="https://github.com/user-attachments/assets/558c25e4-29b5-4707-a71b-8457764dda69" />
+)
 
-The project includes an interactive Streamlit application that allows users to:
+### Model Insights
+![Model Insights](<img width="732" height="830" alt="image" src="https://github.com/user-attachments/assets/be2c24f6-ef16-4521-be90-0104ad32525c" />
+)
 
-Upload a feature CSV file.
-Validate the required columns.
-Run predictions using the trained Random Forest model.
-View prediction results.
-View total users, normal users, and detected insider threats.
-Visualize prediction distribution using charts.
-View detected insider threat users.
-Search for a specific User ID.
-Download the prediction report as a CSV file.
-📋 Prediction Output
+## 📂 Project Structure
 
-The system classifies users as:
+notebooks/ → Data understanding, preprocessing, feature engineering, model building, testing
+Dataset/ → Processed feature datasets
+models/ → Trained model, baseline data, metadata
+app.py → Streamlit web application
 
-🟢 Normal User
 
-or
+## ⚙️ How to Run
 
-🔴 Insider Threat
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-The application also provides summary metrics and visualizations to help analyze the prediction results.
+# Run the notebooks in order (01 → 05) to regenerate features and train the model
 
-🎓 Academic Project
+# Launch the app
+streamlit run app.py
+```
 
-Project Type: B.Tech Final Year Major Project
-Domain: Machine Learning / Cybersecurity
-Model: Random Forest Classifier
-Application: Streamlit
+## 📈 Model Performance
 
-👨‍💻 Team
-Vinay Nikhar
-Vishal Jadhav
-Saurabh Mohod
-Nandini Pund
-Prachi Dahapute
-🚀 Future Improvements
-Real-time user activity monitoring
-Advanced anomaly detection techniques
-Model optimization and hyperparameter tuning
-Real-time alert and notification system
-Cloud deployment
-Integration with enterprise security systems
+Validated using Stratified 5-Fold Cross-Validation — train-test gap under 2%, confirming the model generalizes well and is not overfitting.
 
-📌 Disclaimer
-This project is developed for academic and educational purposes to demonstrate the application of Machine Learning techniques for insider threat detection.
+## 🔬 Research Gap Addressed
+
+Existing insider threat detection systems rely on static, aggregate behavioral counts and non-interpretable classifiers. This project addresses this gap through:
+- Behavioral-drift features capturing deviation from a user's own historical baseline
+- An explainability layer providing analyst-readable reasoning for each prediction
+
+## 📜 License
+
+This project is for academic purposes only.
